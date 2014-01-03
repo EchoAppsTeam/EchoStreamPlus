@@ -4,5 +4,5 @@
 		"id": "echo-stream-plus-dev",
 		"name": "Stream+ (Dev)"
 	},
-	"baseURL": "//echoplatform.com/sandbox/staging/apps/echo/conversations"
+	"baseURL": "//echoplatform.com/sandbox/staging/apps/echo/streamplus"
 }
