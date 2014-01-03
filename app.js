@@ -12,7 +12,8 @@ stream.config = {
 	"dependencies": {
 		"Janrain": {"appId": undefined},
 		"StreamServer": {"appkey": undefined}
-	}
+	},
+	"conversations": {}
 };
 
 stream.dependencies = [{
@@ -37,15 +38,9 @@ stream.renderers.stream = function(element) {
 	this.initComponent({
 		"id": "Conversations",
 		"component": "Echo.Apps.Conversations",
-		"config": {
+		"config": $.extend(true, {
 			"target": element,
 			"targetURL": this.config.get("targetURL"),
-			"auth": {
-				"allowAnonymousSubmission": true
-			},
-			"postComposer": {
-				"visible": false
-			},
 			"topPosts": {
 				"queryOverride": topQuery
 			},
@@ -53,7 +48,7 @@ stream.renderers.stream = function(element) {
 				"queryOverride": allQuery
 			},
 			"dependencies": this.config.get("dependencies")
-		}
+		}, this.config.get("conversations"))
 	});
 	return element;
 };
