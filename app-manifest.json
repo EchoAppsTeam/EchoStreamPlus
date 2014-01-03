@@ -1,6 +1,6 @@
 {
-    "id": "stream-plus-beta",
-    "name": "Stream+ (Beta)",
+    "id": "{%=manifest.id%}",
+    "name": "{%=manifest.name%}",
     "description": "Stream+ application allows you to configure multiple data sources and visualize them on a page",
     "app_version": "0.0.1",
     "developer": {
@@ -14,7 +14,7 @@
         "id": "instances",
         "type": "instances",
         "title": "Instances",
-        "script": "//echoplatform.com/sandbox/apps/echo/stream-plus/dashboard.js",
+        "script": "{%=baseURL%}/dashboard.js",
         "component": "Echo.Apps.StreamPlus.Dashboard",
         "config": {
            "instanceManager": {
@@ -30,7 +30,7 @@
     }],
     "client_widget": {
         "component": "Echo.Apps.StreamPlus",
-        "script": "//echoplatform.com/sandbox/apps/echo/stream-plus/app.js"
+        "script": "{%=baseURL%}/app.js"
     },
     "cloudapp_protocol_version": "1.0.0"
 }
