@@ -37,55 +37,7 @@ dashboard.config = {
 	"janrainapps": []
 };
 
-dashboard.config.ecl = [
-/*
-{
-	"name": "replies",
-	"component": "Checkbox",
-	"type": "boolean",
-	"default": true,
-	"config": {
-		"title": "Allow users to post replies",
-		"desc": "Check to display replies for each item and provide an ability for the users to post their replies"
-	}
-}, {
-	"name": "likes",
-	"component": "Checkbox",
-	"type": "boolean",
-	"default": true,
-	"config": {
-		"title": "Allow users to Like items",
-		"desc": "Check to enable Likes for the items"
-	}
-}, {
-	"name": "sharing",
-	"component": "Checkbox",
-	"type": "boolean",
-	"default": false,
-	"config": {
-		"title": "Allow users to share items",
-		"desc": "Check to provide an ability for the users to share the items with their friends via social networks"
-	}
-}, {
-	"name": "flags",
-	"component": "Checkbox",
-	"type": "boolean",
-	"default": true,
-	"config": {
-		"title": "Allow community flagging",
-		"desc": "Check to add a button for the users to mark inappropriate content"
-	}
-}, {
-	"name": "itemsPerPage",
-	"component": "Input",
-	"type": "number",
-	"default": 15,
-	"config": {
-		"title": "Items per page",
-		"desc": "Defines the amount of root items per page"
-	}
-}, */
-{
+dashboard.config.ecl = [{
 	"name": "targetURL",
 	"component": "Echo.Apps.MediaGallery.DataSourceGroup",
 	"type": "string",
