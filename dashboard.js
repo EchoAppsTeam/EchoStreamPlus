@@ -340,7 +340,7 @@ dashboard.config.ecl = [{
 	}]
 }, {
 	"component": "Group",
-	"name": "conversations",
+	"name": "advanced",
 	"type": "object",
 	"config": {
 		"title": "Advanced"
@@ -492,7 +492,7 @@ dashboard.config.normalizer = {
 		};
 
 		return $.map(obj, function(field) {
-			return field.name !== "conversations"
+			return field.name !== "advanced"
 				? field
 				: $.extend({}, field, {
 					"items": $.map(field.items || {}, function(item) {

@@ -13,7 +13,7 @@ stream.config = {
 		"Janrain": {"appId": undefined},
 		"StreamServer": {"appkey": undefined}
 	},
-	"conversations": {}
+	"advanced": {}
 };
 
 stream.dependencies = [{
@@ -48,7 +48,7 @@ stream.renderers.stream = function(element) {
 				"queryOverride": allQuery
 			},
 			"dependencies": this.config.get("dependencies")
-		}, this.config.get("conversations"))
+		}, this.config.get("advanced"))
 	});
 	return element;
 };
