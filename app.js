@@ -33,8 +33,8 @@ stream.renderers.stream = function(element) {
 	var targetURL = this.config.get("targetURL");
 	// FIXME: get rid of queryOverrides as soon as "type" config parameter
 	//        is supported in Echo Conversations app
-	var topQuery = "childrenof:" + targetURL + " sortOrder:reverseChronological itemsPerPage:5 (user.markers:Conversations.TopContributor OR markers:Conversations.TopPost) -markers:Conversations.RemovedFromTopPosts type:comment,note -state:ModeratorDeleted children:2 -state:ModeratorDeleted";
-	var allQuery = "childrenof:" + targetURL + " sortOrder:reverseChronological itemsPerPage:15 type:comment,note (state:Untouched,ModeratorApproved OR (user.roles:moderator,administrator AND -state:ModeratorDeleted)) children:2 (state:Untouched,ModeratorApproved OR (user.roles:moderator,administrator AND -state:ModeratorDeleted))";
+	var topQuery = "childrenof:" + targetURL + " sortOrder:reverseChronological safeHTML:permissive itemsPerPage:5 (user.markers:Conversations.TopContributor OR markers:Conversations.TopPost) -markers:Conversations.RemovedFromTopPosts type:comment,note -state:ModeratorDeleted children:2 -state:ModeratorDeleted";
+	var allQuery = "childrenof:" + targetURL + " sortOrder:reverseChronological safeHTML:permissive itemsPerPage:15 type:comment,note (state:Untouched,ModeratorApproved OR (user.roles:moderator,administrator AND -state:ModeratorDeleted)) children:2 (state:Untouched,ModeratorApproved OR (user.roles:moderator,administrator AND -state:ModeratorDeleted))";
 	this.initComponent({
 		"id": "Conversations",
 		"component": "Echo.Apps.Conversations",
