@@ -1,7 +1,5 @@
-(function(jQuery) {
+(function($) {
 "use strict";
-
-var $ = jQuery;
 
 var stream = Echo.App.manifest("Echo.Apps.StreamPlus");
 

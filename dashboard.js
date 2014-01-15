@@ -1,10 +1,9 @@
-(function(jQuery) {
+(function($) {
+"use strict";
 
-var $ = jQuery;
+if (Echo.AppServer.Dashboard.isDefined("Echo.Apps.StreamPlus.Dashboard")) return;
 
-if (Echo.Control.isDefined("Echo.Apps.StreamPlus.Dashboard")) return;
-
-var dashboard = Echo.Control.manifest("Echo.Apps.StreamPlus.Dashboard");
+var dashboard = Echo.AppServer.Dashboard.manifest("Echo.Apps.StreamPlus.Dashboard");
 
 dashboard.inherits = Echo.Utils.getComponent("Echo.AppServer.Dashboards.AppSettings");
 
@@ -29,7 +28,7 @@ dashboard.dependencies = [{
 	"control": "Echo.DataServer.Controls.Pack"
 }, {
 	"url": "http://cdn.echoenabled.com/apps/echo/media-gallery/dashboard/data-source.js",
-	"control": "Echo.Apps.StreamPlus.InstanceDataSource"
+	"control": "Echo.Apps.MediaGallery.InstanceDataSource"
 }];
 
 dashboard.vars = {
@@ -508,7 +507,7 @@ dashboard.config.normalizer = {
 					"items": $.map(field.items || {}, function(item) {
 						return handle(item);
 					})
-				})
+				});
 		});
 	}
 };
@@ -632,6 +631,6 @@ dashboard.methods._assembleTargetURL = function() {
 	return targetURL;
 };
 
-Echo.Control.create(dashboard);
+Echo.AppServer.Dashboard.create(dashboard);
 
 })(Echo.jQuery);
