@@ -1,9 +1,9 @@
 (function($) {
 "use strict";
 
-var stream = Echo.App.manifest("Echo.Apps.StreamPlus");
+if (Echo.App.isDefined("Echo.Apps.StreamPlus")) return;
 
-if (Echo.App.isDefined(stream)) return;
+var stream = Echo.App.manifest("Echo.Apps.StreamPlus");
 
 stream.config = {
 	"targetURL": undefined,
@@ -24,34 +24,21 @@ stream.dependencies = [{
 
 stream.templates.main =
 	'<div class="{class:container}">' +
-		'<div class="{class:stream}"></div>' +
+		'<div class="{class:content}"></div>' +
 	'</div>';
 
-stream.renderers.stream = function(element) {
-	var targetURL = this.config.get("targetURL");
-	// FIXME: get rid of queryOverrides as soon as "type" config parameter
-	//        is supported in Echo Conversations app
-	var topQuery = "childrenof:" + targetURL + " sortOrder:reverseChronological safeHTML:permissive itemsPerPage:5 (user.markers:Conversations.TopContributor OR markers:Conversations.TopPost) -markers:Conversations.RemovedFromTopPosts type:comment,note -state:ModeratorDeleted children:2 -state:ModeratorDeleted";
-	var allQuery = "childrenof:" + targetURL + " sortOrder:reverseChronological safeHTML:permissive itemsPerPage:15 type:comment,note (state:Untouched,ModeratorApproved OR (user.roles:moderator,administrator AND -state:ModeratorDeleted)) children:2 (state:Untouched,ModeratorApproved OR (user.roles:moderator,administrator AND -state:ModeratorDeleted))";
+stream.renderers.content = function(element) {
 	this.initComponent({
 		"id": "Conversations",
 		"component": "Echo.Apps.Conversations",
-		"config": $.extend(true, {
+		"config": $.extend(true, {}, this.config.get("advanced"), {
 			"target": element,
 			"targetURL": this.config.get("targetURL"),
-			"topPosts": {
-				"queryOverride": topQuery
-			},
-			"allPosts": {
-				"queryOverride": allQuery
-			},
 			"dependencies": this.config.get("dependencies")
-		}, this.config.get("advanced"))
+		})
 	});
 	return element;
 };
-
-stream.css = "";
 
 Echo.App.create(stream);
 
