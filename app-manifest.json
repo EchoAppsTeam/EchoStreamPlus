@@ -20,8 +20,6 @@
            "instanceManager": {
                "instance": {"useLoadingIcon": true}
             },
-            "product": "{data:app.info}",
-            "instance": "{data:instance}",
             "appkeys": "{data:apps.streamserver.appkeys}",
             "janrainapps": "{data:apps.janrain.apps}",
             "customer": "{data:customer}",
