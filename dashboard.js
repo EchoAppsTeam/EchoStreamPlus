@@ -542,7 +542,7 @@ dashboard.methods._prepareECL = function(items) {
 	var instructions = {
 		"targetURL": function(item) {
 			item.config = $.extend({
-				"instanceName": self.config.get("instance.name"),
+				"instanceName": self.get("data.instance.name"),
 				"domains": self.config.get("domains"),
 				"apiToken": self.config.get("dataserverToken"),
 				"valueHandler": function() {
@@ -587,7 +587,7 @@ dashboard.methods._fetchDataServerToken = function(callback) {
 	var self = this;
 	Echo.AppServer.API.request({
 		"endpoint": "customer/{id}/subscriptions",
-		"id": this.config.get("customer").id,
+		"id": this.get("data.customer").id,
 		"onData": function(response) {
 			var token = Echo.Utils.foldl("", response, function(subscription, acc) {
 				return subscription.product.name === "dataserver"
@@ -621,11 +621,11 @@ dashboard.methods._displayError = function(message) {
 };
 
 dashboard.methods._assembleTargetURL = function() {
-	var re =  new RegExp("\/" + this.config.get("instance.name") + "$");
-	var targetURL = this.config.get("instance.config.targetURL");
+	var re =  new RegExp("\/" + this.get("data.instance.name") + "$");
+	var targetURL = this.get("data.instance.config.targetURL");
 
 	if (!targetURL || !targetURL.match(re)) {
-		targetURL =  "http://" + this.config.get("domains")[0] + "/social-source-input/" + this.config.get("instance.name");
+		targetURL =  "http://" + this.config.get("domains")[0] + "/social-source-input/" + this.get("data.instance.name");
 	}
 
 	return targetURL;
