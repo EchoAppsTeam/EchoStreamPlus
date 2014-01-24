@@ -25,6 +25,13 @@
             "customer": "{data:customer}",
             "domains": "{data:apps.streamserver.domains}"
         }
+    }, {
+	"id": "docs",
+	"type": "external",
+	"title": "Documentation",
+	"config": {
+		"src": "http://emb.echoplatform.com/streamplus/docs/overview/"
+	}
     }],
     "client_widget": {
         "component": "Echo.Apps.StreamPlus",
