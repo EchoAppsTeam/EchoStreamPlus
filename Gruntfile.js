@@ -142,7 +142,7 @@ module.exports = function(grunt) {
 				"remoteRoot": shared.config("env") === "staging" ? "/staging" : "",
 				"purgeTitle": "<%= pkg.name %>",
 				"purgePaths": [
-					"/apps/echo/streamplus/"
+					"/apps/echo/streamplus/v<%= pkg.versions.stable %>/"
 				]
 			},
 			"regular": {
@@ -151,7 +151,7 @@ module.exports = function(grunt) {
 						"all": {
 							"src": "**",
 							"cwd": "<%= dirs.dist %>/",
-							"dest": "<%= release.options.remoteRoot %>/apps/echo/streamplus/"
+							"dest": "<%= release.options.remoteRoot %>/apps/echo/streamplus/v<%= pkg.versions.stable %>/"
 						}
 					}
 				}
@@ -189,11 +189,19 @@ module.exports = function(grunt) {
 	};
 	grunt.initConfig(config);
 
+	var parts = grunt.config("pkg.version").split(".");
+	grunt.config("pkg.versions", {
+		"stable": parts.join("."),
+		"latest": parts[0] + "." + parts[1]
+	});
+
 	function assembleEnvConfig() {
 		var env = shared.config("env");
 		var envFilename = "config/environments/" + env + ".json";
 		if (!grunt.file.exists(envFilename)) return;
-		grunt.config("envConfig", grunt.file.readJSON(envFilename));
+		var config = grunt.file.readJSON(envFilename);
+		config.packageVersions = grunt.config("pkg.versions");
+		grunt.config("envConfig", config);
 	}
 	assembleEnvConfig();
 };
