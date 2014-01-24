@@ -15,7 +15,7 @@ stream.config = {
 };
 
 stream.dependencies = [{
-	"url": "//cdn.echoenabled.com/apps/echo/conversations/app.js",
+	"url": "//cdn.echoenabled.com/apps/echo/conversations/v1.3/app.js",
 	"app": "Echo.Apps.Conversations"
 }, {
 	"url": "{config:cdnBaseURL.sdk}/streamserver.pack.js",

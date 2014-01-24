@@ -4,5 +4,5 @@
 		"id": "echo-stream-plus-dev",
 		"name": "Stream+ (Dev)"
 	},
-	"baseURL": "//echoplatform.com/sandbox/staging/apps/echo/streamplus/v{%=packageVersions.stable%}"
+	"baseURL": "//echoplatform.com/sandbox/staging/apps/echo/stream-plus/v{%=packageVersions.stable%}"
 }
