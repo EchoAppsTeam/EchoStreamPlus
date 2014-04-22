@@ -3,6 +3,7 @@
     "name": "{%=manifest.name%}",
     "description": "Stream+ application allows you to configure multiple data sources and visualize them on a page",
     "app_version": "{%=packageVersions.stable%}",
+    "icon": "{%=baseURL%}/images/icon.png",
     "developer": {
         "id": "echo",
         "name": "Echo",
@@ -26,12 +27,12 @@
             "domains": "{data:apps.streamserver.domains}"
         }
     }, {
-	"id": "docs",
-	"type": "external",
-	"title": "Documentation",
-	"config": {
-		"src": "http://emb.echoplatform.com/streamplus/docs/overview/"
-	}
+      "id": "docs",
+      "type": "external",
+      "title": "Documentation",
+      "config": {
+        "src": "http://emb.echoplatform.com/streamplus/docs/overview/"
+      }
     }],
     "client_widget": {
         "component": "Echo.Apps.StreamPlus",
